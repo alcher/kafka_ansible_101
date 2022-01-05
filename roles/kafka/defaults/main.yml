@@ -1,0 +1,21 @@
+apt_cache_timeout: 3600
+kafka:
+  version: "2.8.1"
+  scala_version: "2.13"
+  mirror: "https://archive.apache.org/dist"
+  download_dir: "/tmp"
+  install_dir: "/usr/local"
+  data_dir: "/usr/local/kafka/data"
+  server_properties: "real-server.properties"
+
+# This does not have to be every Zookeeper host, but the more the better
+# by default, we assume this is run at the same time as Zookeeper provisioning
+zk_hosts: "{{ groups['zookeeper'] }}" # This does not have to be every Zookeeper host
+zk_client_port: 2181
+kafka_cluster_info:
+   kafka101-kafkworker-01:
+     broker_id: 1
+   kafka101-kafkworker-02:
+     broker_id: 2
+   kafka101-kafkworker-03:
+     broker_id: 3

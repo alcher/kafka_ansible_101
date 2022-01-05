@@ -1,0 +1,8 @@
+- name: Updating host file
+  blockinfile:
+    block: "{{ lookup('file', '/tmp/server_hostfile') }}"
+    path: "/etc/hosts"
+    backup: yes
+    insertafter: EOF
+  tags: hostfile
+

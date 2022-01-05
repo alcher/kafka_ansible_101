@@ -1,0 +1,24 @@
+---
+- hosts: zookeeper
+  roles:
+    - {
+        role: hostfile,
+      }
+    - {
+        role: java,
+      }
+    - {
+        role: zookeeper,
+        zookeeper_version: 3.6.3
+      }
+- hosts: kafka-nodes
+  roles:
+    - {
+        role: hostfile,
+      }
+    - {
+        role: java,
+      }
+    - {
+        role: kafka
+      }
